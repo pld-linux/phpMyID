@@ -1,15 +1,21 @@
 Summary:	Single user Identity Provider for OpenID authentication
 Name:		phpMyID
 Version:	0.6
-Release:	0.1
+Release:	0.2
 License:	GPL
 Group:		Applications/WWW
 Source0:	http://siege.org/projects/phpMyID/%{name}-%{version}.tgz
 # Source0-md5:	f1f000c370ca4a402e26f10a04d50329
+Source1:	%{name}-apache.conf
+Source2:	%{name}.php
 URL:		http://siege.org/projects/phpMyID/
 BuildRequires:	rpmbuild(macros) >= 1.268
+Requires:	php(pcre)
+Requires:	php(session)
 Requires:	webapps
-Requires:	webserver(php)
+Requires:	webserver(php) >= 4.2.0
+Suggests:	php(bcmath)
+Suggests:	php(gmp)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -27,21 +33,14 @@ OpenID "IdP."
 %prep
 %setup -q
 
-cat > apache.conf <<'EOF'
-Alias /%{name} %{_appdir}
-<Directory %{_appdir}>
-	Allow from all
-</Directory>
-EOF
-
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{_appdir}}
 cp -a MyID.php $RPM_BUILD_ROOT%{_appdir}
 cp -a MyID.config.php $RPM_BUILD_ROOT%{_sysconfdir}/config.php
-
-install apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
-install apache.conf $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
+cp -a %{SOURCE2} $RPM_BUILD_ROOT%{_sysconfdir}/index.php
+cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/apache.conf
+cp -a %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/httpd.conf
 
 %triggerin -- apache1 < 1.3.37-3, apache1-base
 %webapp_register apache %{_webapp}
