@@ -1,13 +1,14 @@
 Summary:	Single user Identity Provider for OpenID authentication
 Name:		phpMyID
 Version:	0.6
-Release:	0.2
+Release:	0.3
 License:	GPL
 Group:		Applications/WWW
 Source0:	http://siege.org/projects/phpMyID/%{name}-%{version}.tgz
 # Source0-md5:	f1f000c370ca4a402e26f10a04d50329
 Source1:	%{name}-apache.conf
 Source2:	%{name}.php
+Patch0:		%{name}.patch
 URL:		http://siege.org/projects/phpMyID/
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	php(pcre)
@@ -32,6 +33,7 @@ OpenID "IdP."
 
 %prep
 %setup -q
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
