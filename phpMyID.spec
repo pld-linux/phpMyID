@@ -1,4 +1,5 @@
 Summary:	Single user Identity Provider for OpenID authentication
+Summary(pl.UTF-8):	Prosty dostawca identyfikatorów użytkowników do uwierzytelniania OpenID
 Name:		phpMyID
 Version:	0.6
 Release:	0.3
@@ -30,6 +31,12 @@ phpMyID is a small, fairly lightweight, standalone, single user
 Identity Provider for OpenID authentication. It comprises a single PHP
 script that can be used by one individual to run their own personal
 OpenID "IdP."
+
+%description -l pl.UTF-8
+phpMyID to mały, dość lekki i samodzielny dostawca identyfikatorów
+użytkowników (Idendity Provider) do uwierzytelniania OpenID. Składa
+się z pojedynczego skryptu PHP, który może być używany w celu
+uruchomienia własnego "IdP" OpenID.
 
 %prep
 %setup -q
