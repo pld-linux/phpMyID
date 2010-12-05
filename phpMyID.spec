@@ -1,16 +1,16 @@
 Summary:	Single user Identity Provider for OpenID authentication
 Summary(pl.UTF-8):	Prosty dostawca identyfikatorów użytkowników do uwierzytelniania OpenID
 Name:		phpMyID
-Version:	0.6
-Release:	0.3
+Version:	0.9
+Release:	1
 License:	GPL
 Group:		Applications/WWW
-Source0:	http://siege.org/projects/phpMyID/%{name}-%{version}.tgz
-# Source0-md5:	f1f000c370ca4a402e26f10a04d50329
+Source0:	http://siege.org/pub/phpmyid/phpMyID-0.9.tgz
+# Source0-md5:	fa6ee681e71cf424e02be453393be346
 Source1:	%{name}-apache.conf
 Source2:	%{name}.php
 Patch0:		%{name}.patch
-URL:		http://siege.org/projects/phpMyID/
+URL:		http://siege.org/phpmyid.php
 BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	php(pcre)
 Requires:	php(session)

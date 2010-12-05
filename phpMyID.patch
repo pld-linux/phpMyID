@@ -1,9 +1,9 @@
---- phpMyID-0.6/MyID.config.php~	2007-08-07 19:02:53.000000000 +0300
-+++ phpMyID-0.6/MyID.config.php	2007-10-16 09:02:36.466746683 +0300
-@@ -48,6 +48,3 @@
+--- phpMyID-0.9/MyID.config.php~	2010-12-05 23:00:27.000000000 +0200
++++ phpMyID-0.9/MyID.config.php	2010-12-05 23:00:46.471459674 +0200
+@@ -58,6 +58,3 @@
  #	'language'		=> 'en',
  #	'timezone'		=> 'America/New_York'
  );
 -
--include('MyID.php');
+-require('MyID.php');
 -?>
